@@ -5,6 +5,8 @@ const createUser = require('../../../../controllers/v1/users/createUser.controll
 const userLoginController = require('../../../../controllers/v1/users/userLogin.controller');
 const userLogout = require('../../../../controllers/v1/users/userLogout.controller');
 const CreateArtifact = require('../../../../controllers/v1/users/createArtifact.controller');
+const GetAllArtifact = require('../../../../controllers/v1/users/getAllArtifact.controller');
+const getArtifact = require('../../../../controllers/v1/users/getArtifact.controller');
 
 const router = require('express').Router();
 
@@ -18,5 +20,7 @@ router.get('/gettoken', userRefreshTokenController);
 router.post('/login', userLoginController);
 router.patch('/logout', UserAuth, userLogout);
 router.post('/createArtifact',UserAuth,CreateArtifact);
+router.get('/getAllArtifact',UserAuth,GetAllArtifact);
+router.get('/getartifact/:id',getArtifact);
 
 module.exports = router;
